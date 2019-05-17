@@ -10,7 +10,7 @@ from user import  models
 from user.utils import response
 import re
 
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import make_password
 
 
 

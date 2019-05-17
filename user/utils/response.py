@@ -45,3 +45,21 @@ SYSTEM_ERROR = {
     "status": False,
     "msg": "系统错误"
 }
+
+LOGIN_FAILED = {
+    "code": "0103",
+    "status": False,
+    "msg": "用户名或密码错误"
+}
+
+USER_NOT_EXISTS = {
+    "code": "0104",
+    "status": False,
+    "msg": "该用户未注册"
+}
+
+LOGIN_SUCCESS = {
+    "code": "0001",
+    "status": True,
+    "msg": "登录成功"
+}
