@@ -16,10 +16,10 @@ class Register(APIView):
 
     def post(self,request):
         try:
-            username = request.data["username"]
-            password = request.data["password"]
-            confirm_pwd = request.data["confirm_pwd"]
-            email = request.data["email"]
+            username = request.data.get("username")
+            password = request.data.get("password")
+            confirm_pwd = request.data.get("confirm_pwd")
+            email = request.data.get("email")
         except KeyError:
             return Response(response.KEY_ERROR)
 
@@ -36,8 +36,8 @@ class Login(APIView):
     """
     def post(self,request):
         try:
-            username = request.data["username"]
-            password = request.data["password"]
+            username = request.data.get("username")
+            password = request.data.get("password")
         except KeyError:
             return Response(response.KEY_ERROR)
 
