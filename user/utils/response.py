@@ -63,3 +63,13 @@ LOGIN_SUCCESS = {
     "status": True,
     "msg": "登录成功"
 }
+LOGOUT_SUCCESS = {
+    "code": "0001",
+    "status": True,
+    "msg": "注销成功",
+}
+LOGOUT_FAILED = {
+    "code": "0102",
+    "status": False,
+    "msg": "用户密钥配对不成功"
+}

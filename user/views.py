@@ -51,6 +51,7 @@ class Login(APIView):
         token = generate_token(username)
 
         try:
+
             models.UserToken.objects.update_or_create(user=user, defaults={"token": token})
         except ObjectDoesNotExist:
             return Response(response.SYSTEM_ERROR)
@@ -58,3 +59,17 @@ class Login(APIView):
             response.LOGIN_SUCCESS["token"] = token
             response.LOGIN_SUCCESS["user"] = username
             return Response(response.LOGIN_SUCCESS)
+
+    def get(self,request):
+        try:
+            token = request.data.get('token')
+            username = request.data.get('username')
+            user = models.UserInfo.objects.filter(username=username).first()
+            token = models.UserToken.objects.filter(user_id = user).values("token")
+            print (token)
+        except KeyError:
+            return Response(response.KEY_ERROR)
+        if not user:
+            return Response(response.USER_NOT_EXISTS)
+
+        return Response(123)
