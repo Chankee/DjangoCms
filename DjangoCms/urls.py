@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf.urls import url
+from Cms import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path(r'api/user/',include('user.urls'))
+    path(r'api/user/',include('user.urls')),
+    url(r'^api/product/$',views.ProductView.as_view({"get":"list","post":"create"}),name='product'),
+    url(r'api/product/(?P<pk>\d+)/$',views.ProductView.as_view({"put":"update","delete":"destroy"}))
 ]
